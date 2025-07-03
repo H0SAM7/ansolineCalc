@@ -104,16 +104,42 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                           value: languageService.locale.languageCode,
                           padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
                           borderRadius: BorderRadius.circular(12.r),
-                          items: [
-                            DropdownMenuItem(
-                              value: 'en',
-                              child: Text('🇺🇸', style: TextStyle(fontSize: 16.sp)),
-                            ),
-                            DropdownMenuItem(
-                              value: 'ar',
-                              child: Text('🇸🇦', style: TextStyle(fontSize: 16.sp)),
-                            ),
-                          ],
+                                items: [
+                              DropdownMenuItem(
+                                value: 'en',
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      '🇺🇸',
+                                      style: TextStyle(fontSize: 18.sp),
+                                    ),
+                                    SizedBox(width: 8.w),
+                                    Text(
+                                      'English',
+                                      style: TextStyle(fontSize: 14.sp),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: 'ar',
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      '🇸🇦',
+                                      style: TextStyle(fontSize: 18.sp),
+                                    ),
+                                    SizedBox(width: 8.w),
+                                    Text(
+                                      'العربية',
+                                      style: TextStyle(fontSize: 14.sp),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           onChanged: (value) {
                             if (value != null) {
                               languageService.changeLanguage(value);
@@ -123,18 +149,18 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                       ),
                     ),
                     SizedBox(width: 16.w),
-                    Expanded(
-                      child: Text(
-                        l10n.appTitle,
-                        style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 24.sp,
-                        ),
-                      ),
-                    ),
-                    // Language Selector
-                   
+                    // Expanded(
+                    //   child: Text(
+                    //     l10n.appTitle,
+                    //     style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                    //       fontWeight: FontWeight.bold,
+                    //       color: Colors.white,
+                    //       fontSize: 24.sp,
+                    //     ),
+                    //   ),
+                    // ),
+
+                   Spacer(),
                     SizedBox(width: 8.w),
                     IconButton(
                       onPressed: () {
